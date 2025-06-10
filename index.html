@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Martian Games</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://www.iclarified.com/images/news/97556/465563/465563.jpg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    header {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #ffffffdd;
+      padding: 10px 25px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .game-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .game-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .game-frame {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(0, 122, 255, 0.8);
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Martian Games</div>
+    <p style="color:#ffffffcc">Click on a game to play</p>
+  </header>
+
+  <div class="game-grid" id="gameGrid">
+    <div class="game-card" onclick="launchGame('https://cloud.onlinegames.io/games/2021/1/apocalypse-truck/index-og.html')">Apocalypse Truck</div>
+    <div class="game-card" onclick="launchGame('https://www.onlinegames.io/games/2024/unity/drift-king/index.html')">Drift King</div>
+    <div class="game-card" onclick="launchGame('https://cloud.onlinegames.io/games/2021/unity/mini-cars-racing/index-og.html')">Mini Cars Racing</div>
+    <div class="game-card" onclick="launchGame('https://www.onlinegames.io/games/2022/unity2/masked-special/index.html')">Masked Special</div>
+    <div class="game-card" onclick="launchGame('https://www.onlinegames.io/games/2023/unity2/gta-simulator/index.html')">GTA Simulator</div>
+  </div>
+
+  <script>
+    function launchGame(url) {
+      const body = document.body;
+      body.innerHTML = `
+        <button class="back-button" onclick="location.reload()">← Back</button>
+        <iframe src="${url}" class="game-frame" allowfullscreen></iframe>
+      `;
+    }
+  </script>
+</body>
+</html>
